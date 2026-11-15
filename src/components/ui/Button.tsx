@@ -1,20 +1,21 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "cta";
 type Size = "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-accent text-ink hover:bg-accent-dark shadow-sm shadow-accent-dark/20",
+    "bg-forest text-white shadow-[0_12px_30px_rgba(71,116,74,0.28)] hover:bg-deep",
   secondary:
-    "bg-transparent border border-current text-inherit hover:bg-white/10",
+    "bg-white border-[1.5px] border-cocoa text-cocoa hover:bg-cream",
   ghost: "bg-transparent text-inherit hover:bg-black/5",
+  cta: "bg-butter text-cocoa shadow-[0_12px_30px_rgba(254,200,104,0.35)] hover:bg-peach",
 };
 
 const sizeClasses: Record<Size, string> = {
-  md: "px-5 py-2.5 text-sm",
-  lg: "px-7 py-3.5 text-base",
+  md: "px-6 py-3 text-sm",
+  lg: "px-[30px] py-[17px] text-base",
 };
 
 type ButtonProps = {
@@ -39,7 +40,7 @@ export function Button({
   disabled = false,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-200 min-h-11",
+    "inline-flex items-center justify-center gap-2 rounded-full font-bold transition-colors duration-200 min-h-11",
     variantClasses[variant],
     sizeClasses[size],
     disabled && "pointer-events-none cursor-not-allowed opacity-50",

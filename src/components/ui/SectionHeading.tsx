@@ -16,13 +16,18 @@ export function SectionHeading({
   return (
     <div className={cn("max-w-2xl", align === "center" ? "mx-auto text-center" : "text-left")}>
       {eyebrow && (
-        <p className="font-caveat text-2xl text-accent-dark">{eyebrow}</p>
+        <p className="font-caveat text-2xl font-semibold text-forest md:text-[28px]">{eyebrow}</p>
       )}
-      <h2 className={cn("mt-1 text-[28px] font-bold leading-tight md:text-4xl", light ? "text-bg" : "text-ink")}>
+      <h2
+        className={cn(
+          "mt-1 font-heading text-[28px] font-extrabold leading-tight tracking-tight md:text-4xl",
+          light ? "text-cream" : "text-deep"
+        )}
+      >
         {title}
       </h2>
       {subtitle && (
-        <p className={cn("mt-3 text-base md:text-lg", light ? "text-bg/80" : "text-slate")}>{subtitle}</p>
+        <p className={cn("mt-3 text-base md:text-lg", light ? "text-cream/80" : "text-cocoa-muted")}>{subtitle}</p>
       )}
     </div>
   );

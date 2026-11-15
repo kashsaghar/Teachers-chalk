@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 type Variant = "coral" | "mist";
 
 const variantClasses: Record<Variant, string> = {
-  coral: "bg-coral text-bg",
-  mist: "bg-mist text-primary",
+  coral: "bg-peach-tint text-stamp",
+  mist: "bg-sage-tint text-deep",
 };
 
 export function Badge({
@@ -19,7 +19,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold tracking-wide",
+        "inline-flex items-center rounded-full px-3.5 py-1.5 text-xs font-bold tracking-wide",
         variantClasses[variant],
         className
       )}

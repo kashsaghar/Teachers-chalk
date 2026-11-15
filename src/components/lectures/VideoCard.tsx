@@ -26,9 +26,9 @@ export function VideoCard({
           onOpen(video);
         }
       }}
-      className="group block overflow-hidden rounded-2xl border border-border bg-white transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg motion-reduce:hover:-translate-y-0"
+      className="group block overflow-hidden rounded-[26px] bg-cream shadow-[0_18px_40px_rgba(71,60,51,0.1)] transition-transform duration-200 hover:-translate-y-2 motion-reduce:hover:-translate-y-0"
     >
-      <div className="relative aspect-video w-full overflow-hidden bg-mist">
+      <div className="relative aspect-video w-full overflow-hidden rounded-[22px] m-2 bg-sage-tint">
         {video.thumbnail && (
           <Image
             src={video.thumbnail}
@@ -39,29 +39,29 @@ export function VideoCard({
           />
         )}
         <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-200 group-hover:bg-black/20">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-bg/90 text-primary opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+          <span className="tc-ring-pulse flex h-12 w-12 items-center justify-center rounded-full bg-butter text-cocoa shadow-[0_10px_24px_rgba(71,60,51,0.2)]">
             <Play className="h-5 w-5" fill="currentColor" />
           </span>
         </div>
         {video.duration && (
-          <span className="absolute bottom-2 right-2 rounded bg-black/80 px-1.5 py-0.5 text-xs font-medium text-white">
+          <span className="absolute bottom-3 right-3 rounded-full bg-black/80 px-2.5 py-1 text-xs font-medium text-white">
             {video.duration}
           </span>
         )}
       </div>
 
-      <div className="p-4">
+      <div className="px-4 pb-4 pt-2">
         <h3
           title={video.title}
-          className="line-clamp-2 min-h-[2.75rem] text-sm font-semibold text-ink"
+          className="line-clamp-2 min-h-[2.75rem] text-sm font-semibold text-cocoa"
         >
           {video.title}
         </h3>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {video.subject && <Badge variant="mist">{video.subject}</Badge>}
-          {video.level && <Badge variant="mist">{video.level}</Badge>}
+          {video.level && <Badge variant="coral">{video.level}</Badge>}
         </div>
-        <p className="mt-2 text-xs text-slate">{formatDate(video.publishedAt)}</p>
+        <p className="mt-2 text-xs text-cocoa-muted">{formatDate(video.publishedAt)}</p>
       </div>
     </Link>
   );

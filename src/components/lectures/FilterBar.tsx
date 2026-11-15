@@ -21,8 +21,8 @@ function Pill({
       className={cn(
         "min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-150",
         active
-          ? "border-primary bg-primary text-bg"
-          : "border-border bg-white text-ink hover:border-primary/40"
+          ? "border-forest bg-forest text-white"
+          : "border-line bg-white text-cocoa hover:border-forest/40"
       )}
     >
       {label}
@@ -93,14 +93,14 @@ export function FilterBar({
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="relative w-full max-w-sm">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate" />
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-cocoa-muted" />
           <input
             type="search"
             aria-label="Search lecture titles"
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search lecture titles..."
-            className="w-full rounded-full border border-border bg-white py-2.5 pl-10 pr-4 text-sm focus:border-primary"
+            className="w-full rounded-full border-[1.5px] border-line bg-cream py-2.5 pl-10 pr-4 text-sm focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20"
           />
         </div>
 
@@ -108,7 +108,7 @@ export function FilterBar({
           aria-label="Sort lectures by"
           value={sort}
           onChange={(e) => onSortChange(e.target.value as SortOption)}
-          className="rounded-full border border-border bg-white px-4 py-2.5 text-sm focus:border-primary"
+          className="rounded-full border-[1.5px] border-line bg-cream px-4 py-2.5 text-sm focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20"
         >
           {SORT_OPTIONS.map((opt) => (
             <option key={opt.slug} value={opt.slug}>

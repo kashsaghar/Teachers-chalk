@@ -49,10 +49,10 @@ export function DemoForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-border bg-white p-8 text-center">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-primary" />
-        <h3 className="mt-4 text-lg font-bold text-ink">We&apos;ve opened WhatsApp for you</h3>
-        <p className="mt-2 text-sm text-slate">
+      <div className="rounded-[28px] border border-line bg-white p-8 text-center shadow-[0_18px_40px_rgba(71,60,51,0.1)]">
+        <CheckCircle2 className="mx-auto h-10 w-10 text-forest" />
+        <h3 className="mt-4 font-heading text-lg font-bold text-deep">We&apos;ve opened WhatsApp for you</h3>
+        <p className="mt-2 text-sm text-cocoa-muted">
           Just hit send over there and we&apos;ll get back to you to schedule your free demo.
         </p>
         <Button className="mt-5" onClick={() => setSubmitted(false)}>
@@ -63,9 +63,9 @@ export function DemoForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-border bg-white p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-[28px] border border-line bg-white p-6 shadow-[0_18px_40px_rgba(71,60,51,0.1)] md:p-8">
       <div>
-        <label htmlFor="studentName" className="mb-1.5 block text-sm font-medium text-ink">
+        <label htmlFor="studentName" className="mb-1.5 block text-sm font-medium text-cocoa">
           Student name
         </label>
         <input
@@ -73,12 +73,12 @@ export function DemoForm() {
           required
           value={studentName}
           onChange={(e) => setStudentName(e.target.value)}
-          className="w-full rounded-xl border border-border px-4 py-2.5 text-sm focus:border-primary"
+          className="w-full rounded-full border-[1.5px] border-line bg-cream px-4 py-2.5 text-sm focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20"
         />
       </div>
 
       <div>
-        <label htmlFor="whatsapp" className="mb-1.5 block text-sm font-medium text-ink">
+        <label htmlFor="whatsapp" className="mb-1.5 block text-sm font-medium text-cocoa">
           Parent/Student WhatsApp number
         </label>
         <input
@@ -88,20 +88,20 @@ export function DemoForm() {
           value={whatsapp}
           onChange={(e) => setWhatsapp(e.target.value)}
           placeholder="e.g. 923001234567"
-          className="w-full rounded-xl border border-border px-4 py-2.5 text-sm focus:border-primary"
+          className="w-full rounded-full border-[1.5px] border-line bg-cream px-4 py-2.5 text-sm focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20"
         />
       </div>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="level" className="mb-1.5 block text-sm font-medium text-ink">
+          <label htmlFor="level" className="mb-1.5 block text-sm font-medium text-cocoa">
             Level
           </label>
           <select
             id="level"
             value={level}
             onChange={(e) => setLevel(e.target.value)}
-            className="w-full rounded-xl border border-border px-4 py-2.5 text-sm focus:border-primary"
+            className="w-full rounded-full border-[1.5px] border-line bg-cream px-4 py-2.5 text-sm focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20"
           >
             <option value="">Select level</option>
             {LEVEL_OPTIONS.map((opt) => (
@@ -113,14 +113,14 @@ export function DemoForm() {
         </div>
 
         <div>
-          <label htmlFor="board" className="mb-1.5 block text-sm font-medium text-ink">
+          <label htmlFor="board" className="mb-1.5 block text-sm font-medium text-cocoa">
             Board
           </label>
           <select
             id="board"
             value={board}
             onChange={(e) => setBoard(e.target.value)}
-            className="w-full rounded-xl border border-border px-4 py-2.5 text-sm focus:border-primary"
+            className="w-full rounded-full border-[1.5px] border-line bg-cream px-4 py-2.5 text-sm focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20"
           >
             <option value="">Select board</option>
             {BOARD_OPTIONS.map((opt) => (
@@ -133,7 +133,7 @@ export function DemoForm() {
       </div>
 
       <fieldset>
-        <legend className="mb-1.5 text-sm font-medium text-ink">Subject(s)</legend>
+        <legend className="mb-1.5 text-sm font-medium text-cocoa">Subject(s)</legend>
         <div className="flex flex-wrap gap-2">
           {subjects.map((s) => {
             const selected = selectedSubjects.includes(s.label);
@@ -145,8 +145,8 @@ export function DemoForm() {
                 onClick={() => toggleSubject(s.label)}
                 className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                   selected
-                    ? "border-primary bg-primary text-bg"
-                    : "border-border bg-white text-ink hover:border-primary/40"
+                    ? "border-forest bg-forest text-white"
+                    : "border-line bg-cream text-cocoa hover:border-forest/40"
                 }`}
               >
                 {s.label}
@@ -158,7 +158,7 @@ export function DemoForm() {
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <fieldset>
-          <legend className="mb-1.5 text-sm font-medium text-ink">Class type</legend>
+          <legend className="mb-1.5 text-sm font-medium text-cocoa">Class type</legend>
           <div className="flex gap-2">
             {CLASS_TYPES.map((type) => (
               <button
@@ -167,7 +167,7 @@ export function DemoForm() {
                 aria-pressed={classType === type}
                 onClick={() => setClassType(type)}
                 className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                  classType === type ? "border-primary bg-primary text-bg" : "border-border bg-white text-ink"
+                  classType === type ? "border-forest bg-forest text-white" : "border-line bg-cream text-cocoa"
                 }`}
               >
                 {type}
@@ -177,7 +177,7 @@ export function DemoForm() {
         </fieldset>
 
         <fieldset>
-          <legend className="mb-1.5 text-sm font-medium text-ink">Preferred time</legend>
+          <legend className="mb-1.5 text-sm font-medium text-cocoa">Preferred time</legend>
           <div className="flex gap-2">
             {TIME_SLOTS.map((slot) => (
               <button
@@ -186,7 +186,7 @@ export function DemoForm() {
                 aria-pressed={preferredTime === slot}
                 onClick={() => setPreferredTime(slot)}
                 className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                  preferredTime === slot ? "border-primary bg-primary text-bg" : "border-border bg-white text-ink"
+                  preferredTime === slot ? "border-forest bg-forest text-white" : "border-line bg-cream text-cocoa"
                 }`}
               >
                 {slot}
@@ -197,7 +197,7 @@ export function DemoForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-ink">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-cocoa">
           Message (optional)
         </label>
         <textarea
@@ -205,7 +205,7 @@ export function DemoForm() {
           rows={3}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full rounded-xl border border-border px-4 py-2.5 text-sm focus:border-primary"
+          className="w-full rounded-[24px] border-[1.5px] border-line bg-cream px-4 py-2.5 text-sm focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/20"
         />
       </div>
 
