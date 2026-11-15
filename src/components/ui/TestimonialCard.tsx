@@ -1,29 +1,43 @@
 import Image from "next/image";
-import { Quote } from "lucide-react";
 import type { Testimonial } from "@/data/testimonials";
 
+const CARD_STYLES = ["bg-cream", "bg-butter-tint", "bg-white", "bg-peach-tint"];
+
+function seedFor(id: string) {
+  return id.split("").reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+}
+
 export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+  const seed = seedFor(testimonial.id);
+  const bg = CARD_STYLES[seed % CARD_STYLES.length];
+  const rotate = seed % 2 === 0 ? "-rotate-2" : "rotate-2";
+
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-sm">
-      <Quote className="h-6 w-6 text-accent" />
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/90">&ldquo;{testimonial.quote}&rdquo;</p>
-      <div className="mt-4 flex items-center gap-3">
-        {testimonial.photo && (
-          <Image
-            src={testimonial.photo}
-            alt={testimonial.name}
-            width={40}
-            height={40}
-            className="h-10 w-10 rounded-full object-cover"
-          />
-        )}
-        <div>
-          <p className="text-sm font-semibold text-ink">{testimonial.name}</p>
-          <p className="text-xs text-slate">
-            {testimonial.subject} · {testimonial.level} · Grade {testimonial.grade}
-          </p>
+    <div
+      className={`flex h-full w-[260px] flex-none flex-col rounded-[24px] p-5 text-cocoa shadow-[0_14px_26px_rgba(47,82,64,0.18)] ${bg} ${rotate}`}
+    >
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          {testimonial.photo && (
+            <Image
+              src={testimonial.photo}
+              alt={testimonial.name}
+              width={28}
+              height={28}
+              className="h-7 w-7 rounded-full object-cover"
+            />
+          )}
+          <span className="text-sm font-bold">{testimonial.name}</span>
         </div>
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cocoa font-heading text-base font-extrabold text-butter">
+          {testimonial.grade}
+        </span>
       </div>
+      <p className="mt-1 text-xs opacity-75">
+        {testimonial.level} {testimonial.subject}
+        {testimonial.year ? ` · ${testimonial.year}` : ""}
+      </p>
+      <p className="mt-3 font-caveat text-xl leading-tight">&ldquo;{testimonial.quote}&rdquo;</p>
     </div>
   );
 }
