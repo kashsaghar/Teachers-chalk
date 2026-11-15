@@ -10,8 +10,9 @@ export default function ResultsPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-4 py-12 md:px-6">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="text-3xl font-extrabold text-ink md:text-4xl">Results & testimonials</h1>
-        <p className="mt-3 text-base text-slate">Filter by subject or year to see how our students have done.</p>
+        <p className="font-caveat text-2xl text-forest">report cards we love</p>
+        <h1 className="mt-1 font-heading text-3xl font-extrabold text-deep md:text-4xl">Results & testimonials</h1>
+        <p className="mt-3 text-base text-cocoa-muted">Filter by subject or year to see how our students have done.</p>
       </div>
 
       <div className="mt-10">

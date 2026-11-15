@@ -50,15 +50,17 @@ export default async function ProgramPage({
 
   return (
     <div>
-      <section className="bg-primary py-14 text-bg">
-        <div className="mx-auto max-w-[1200px] px-4 text-center md:px-6">
-          <p className="text-xs font-semibold uppercase tracking-wide text-coral">{program.board}</p>
-          <h1 className="mt-2 text-3xl font-extrabold md:text-4xl">{program.label}</h1>
-          <p className="mt-3 text-bg/80">
+      <section className="relative overflow-hidden bg-deep py-14 text-cream">
+        <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-forest opacity-40" />
+        <div className="pointer-events-none absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-peach opacity-20" />
+        <div className="relative mx-auto max-w-[1200px] px-4 text-center md:px-6">
+          <p className="text-xs font-semibold uppercase tracking-wide text-peach">{program.board}</p>
+          <h1 className="mt-2 font-heading text-3xl font-extrabold md:text-4xl">{program.label}</h1>
+          <p className="mt-3 text-cream/80">
             Online {program.label} tuition on the {program.board} board, with live classes, notes and past-paper
             practice.
           </p>
-          <div className="mt-4 flex items-center justify-center gap-2 text-sm text-bg/70">
+          <div className="mt-4 flex items-center justify-center gap-2 text-sm text-cream/70">
             <CalendarDays className="h-4 w-4" /> Exam sessions: May/June and Oct/Nov
           </div>
           <Button href={getWhatsAppLink(`Hi! I'd like to book a free demo for ${program.label}.`)} className="mt-5">
@@ -69,7 +71,7 @@ export default async function ProgramPage({
 
       <div className="mx-auto max-w-[1200px] px-4 py-12 md:px-6">
         <section className="mb-12">
-          <h2 className="mb-4 text-xl font-bold text-ink">Subjects offered</h2>
+          <h2 className="mb-4 font-heading text-xl font-bold text-cocoa">Subjects offered</h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {programSubjects.map((s) => (
               <SubjectCard key={s.slug} subject={s} videoCount={videos.filter((v) => v.subject === s.videoSubject).length} />
@@ -80,10 +82,10 @@ export default async function ProgramPage({
         {programVideos.length > 0 && (
           <section className="mb-12">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-ink">{program.label} lectures</h2>
+              <h2 className="font-heading text-xl font-bold text-cocoa">{program.label} lectures</h2>
               <a
                 href={`/lectures?level=${encodeURIComponent(program.label)}`}
-                className="text-sm font-medium text-primary hover:underline"
+                className="text-sm font-medium text-forest hover:underline"
               >
                 View all →
               </a>
@@ -92,8 +94,8 @@ export default async function ProgramPage({
           </section>
         )}
 
-        <section className="rounded-2xl bg-mist p-8 text-center">
-          <h2 className="text-xl font-bold text-ink">Ready to start {program.label}?</h2>
+        <section className="rounded-[32px] bg-butter p-8 text-center">
+          <h2 className="font-heading text-xl font-bold text-cocoa">Ready to start {program.label}?</h2>
           <Button href={getWhatsAppLink(`Hi! I'd like to book a free demo for ${program.label}.`)} className="mt-4">
             Book Free Demo
           </Button>

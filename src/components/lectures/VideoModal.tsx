@@ -29,15 +29,15 @@ export function VideoModal({ video, onClose }: { video: Video; onClose: () => vo
       onClick={onClose}
     >
       <div
-        className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-bg"
+        className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[26px] bg-cream"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-border p-3">
-          <p className="truncate pr-4 text-sm font-semibold text-ink">{video.title}</p>
+        <div className="flex items-center justify-between border-b border-line p-3">
+          <p className="truncate pr-4 text-sm font-semibold text-cocoa">{video.title}</p>
           <button
             onClick={onClose}
             aria-label="Close"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full hover:bg-mist"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full hover:bg-sage-tint"
           >
             <X className="h-5 w-5" />
           </button>
@@ -54,14 +54,14 @@ export function VideoModal({ video, onClose }: { video: Video; onClose: () => vo
             {video.board && <Badge variant="mist">{video.board}</Badge>}
           </div>
           <div className="flex items-center justify-between text-sm">
-            <Link href={`/lectures/${video.id}`} className="font-medium text-primary hover:underline">
+            <Link href={`/lectures/${video.id}`} className="font-medium text-forest hover:underline">
               Open full page
             </Link>
             <a
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate hover:text-primary hover:underline"
+              className="text-cocoa-muted hover:text-forest hover:underline"
             >
               Watch on YouTube
             </a>

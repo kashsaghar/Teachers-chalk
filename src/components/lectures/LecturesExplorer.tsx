@@ -83,8 +83,8 @@ export function LecturesExplorer({ videos }: { videos: Video[] }) {
       />
 
       {filtered.length === 0 ? (
-        <div className="rounded-2xl border border-border bg-mist p-10 text-center">
-          <p className="text-base text-ink">No lectures match yet. Message us for this topic.</p>
+        <div className="rounded-[26px] bg-sage-tint p-10 text-center">
+          <p className="text-base text-cocoa">No lectures match yet. Message us for this topic.</p>
           <Button href={getWhatsAppLink("Hi! Could you point me to lectures on this topic?")} className="mt-4">
             Message us on WhatsApp
           </Button>
@@ -95,7 +95,7 @@ export function LecturesExplorer({ videos }: { videos: Video[] }) {
 
           {visibleCount < filtered.length && (
             <div className="flex justify-center">
-              <Button variant="secondary" className="border-primary text-primary" onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}>
+              <Button variant="secondary" className="border-forest text-forest" onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}>
                 Load more
               </Button>
             </div>
@@ -103,8 +103,8 @@ export function LecturesExplorer({ videos }: { videos: Video[] }) {
         </>
       )}
 
-      <div className="rounded-2xl bg-primary p-5 text-center lg:hidden">
-        <p className="text-sm font-medium text-bg">Want the full course? Book a free demo</p>
+      <div className="rounded-[26px] bg-deep p-5 text-center lg:hidden">
+        <p className="text-sm font-medium text-cream">Want the full course? Book a free demo</p>
         <Button href="/contact" className="mt-3">
           Book Free Demo
         </Button>

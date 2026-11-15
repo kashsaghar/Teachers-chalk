@@ -67,10 +67,12 @@ export default async function SubjectPage({
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }} />
-      <section className="bg-primary py-14 text-bg">
-        <div className="mx-auto max-w-[1200px] px-4 text-center md:px-6">
-          <h1 className="text-3xl font-extrabold md:text-4xl">{subject.label}</h1>
-          <p className="mt-3 text-bg/80">Online tuition for O Level, A Level, IGCSE, GCSE & Edexcel (CAIE and Edexcel)</p>
+      <section className="relative overflow-hidden bg-deep py-14 text-cream">
+        <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-forest opacity-40" />
+        <div className="pointer-events-none absolute -right-10 bottom-0 h-40 w-40 rounded-full bg-butter opacity-20" />
+        <div className="relative mx-auto max-w-[1200px] px-4 text-center md:px-6">
+          <h1 className="font-heading text-3xl font-extrabold md:text-4xl">{subject.label}</h1>
+          <p className="mt-3 text-cream/80">Online tuition for O Level, A Level, IGCSE, GCSE & Edexcel (CAIE and Edexcel)</p>
           <Button href={getWhatsAppLink(`Hi! I'd like to book a free demo for ${subject.label}.`)} className="mt-5">
             Book Free Demo
           </Button>
@@ -80,7 +82,7 @@ export default async function SubjectPage({
       <div className="mx-auto max-w-[1200px] px-4 py-12 md:px-6">
         {subjectTeachers.length > 0 && (
           <section className="mb-12">
-            <h2 className="mb-4 text-xl font-bold text-ink">Your teacher</h2>
+            <h2 className="mb-4 font-heading text-xl font-bold text-cocoa">Your teacher</h2>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               {subjectTeachers.map((t) => (
                 <TeacherCard key={t.slug} teacher={t} />
@@ -90,13 +92,13 @@ export default async function SubjectPage({
         )}
 
         <section className="mb-12">
-          <h2 className="mb-4 text-xl font-bold text-ink">Topics covered</h2>
-          <p className="mb-4 text-sm text-slate">
+          <h2 className="mb-4 font-heading text-xl font-bold text-cocoa">Topics covered</h2>
+          <p className="mb-4 text-sm text-cocoa-muted">
             A general overview — exact coverage depends on your specific level and syllabus.
           </p>
           <div className="flex flex-wrap gap-2">
             {subject.topics.map((topic) => (
-              <span key={topic} className="rounded-full bg-mist px-4 py-2 text-sm text-ink">
+              <span key={topic} className="rounded-full bg-sage-tint px-4 py-2 text-sm text-deep">
                 {topic}
               </span>
             ))}
@@ -104,12 +106,12 @@ export default async function SubjectPage({
         </section>
 
         <section className="mb-12">
-          <h2 className="mb-4 text-xl font-bold text-ink">What&apos;s included</h2>
+          <h2 className="mb-4 font-heading text-xl font-bold text-cocoa">What&apos;s included</h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {WHATS_INCLUDED.map((item) => (
-              <div key={item} className="flex items-center gap-2 rounded-xl border border-border bg-white px-4 py-3">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
-                <span className="text-sm text-ink">{item}</span>
+              <div key={item} className="flex items-center gap-2 rounded-2xl border border-line bg-white px-4 py-3">
+                <CheckCircle2 className="h-4 w-4 text-forest" />
+                <span className="text-sm text-cocoa">{item}</span>
               </div>
             ))}
           </div>
@@ -118,8 +120,8 @@ export default async function SubjectPage({
         {subjectVideos.length > 0 && (
           <section className="mb-12">
             <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-ink">{subject.label} lectures</h2>
-              <a href={`/lectures?subject=${subject.slug}`} className="text-sm font-medium text-primary hover:underline">
+              <h2 className="font-heading text-xl font-bold text-cocoa">{subject.label} lectures</h2>
+              <a href={`/lectures?subject=${subject.slug}`} className="text-sm font-medium text-forest hover:underline">
                 View all →
               </a>
             </div>
@@ -129,7 +131,7 @@ export default async function SubjectPage({
 
         {subjectTestimonials.length > 0 && (
           <section className="mb-12">
-            <h2 className="mb-4 text-xl font-bold text-ink">What students say</h2>
+            <h2 className="mb-4 font-heading text-xl font-bold text-cocoa">What students say</h2>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {subjectTestimonials.map((t) => (
                 <TestimonialCard key={t.id} testimonial={t} />
@@ -138,8 +140,8 @@ export default async function SubjectPage({
           </section>
         )}
 
-        <section className="rounded-2xl bg-mist p-8 text-center">
-          <h2 className="text-xl font-bold text-ink">Ready to start {subject.label}?</h2>
+        <section className="rounded-[32px] bg-butter p-8 text-center">
+          <h2 className="font-heading text-xl font-bold text-cocoa">Ready to start {subject.label}?</h2>
           <Button
             href={getWhatsAppLink(`Hi! I'd like to book a free demo for ${subject.label}.`)}
             className="mt-4"
@@ -149,7 +151,7 @@ export default async function SubjectPage({
         </section>
 
         <div className="mt-12">
-          <h2 className="mb-4 text-xl font-bold text-ink">Other subjects</h2>
+          <h2 className="mb-4 font-heading text-xl font-bold text-cocoa">Other subjects</h2>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {subjects
               .filter((s) => s.slug !== subject.slug)
