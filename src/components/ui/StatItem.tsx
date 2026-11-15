@@ -1,8 +1,23 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
-export function StatItem({ label, value, suffix }: { label: string; value: number | null; suffix?: string }) {
+export function StatItem({
+  label,
+  value,
+  suffix,
+  icon,
+  iconBg = "bg-butter",
+  delay = 0,
+}: {
+  label: string;
+  value: number | null;
+  suffix?: string;
+  icon?: React.ReactNode;
+  iconBg?: string;
+  delay?: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(0);
 
@@ -39,11 +54,18 @@ export function StatItem({ label, value, suffix }: { label: string; value: numbe
   }, [value]);
 
   return (
-    <div ref={ref} className="text-center">
-      <p className="text-3xl font-extrabold text-primary md:text-4xl">
-        {value === null ? "—" : `${count}${suffix ?? ""}`}
-      </p>
-      <p className="mt-1 text-sm text-slate">{label}</p>
+    <div ref={ref} className="tc-pop flex items-center gap-4" style={{ animationDelay: `${delay}s` }}>
+      {icon && (
+        <span className={cn("flex h-16 w-16 shrink-0 items-center justify-center rounded-full", iconBg)}>
+          {icon}
+        </span>
+      )}
+      <div className="text-left">
+        <p className="font-heading text-3xl font-extrabold leading-none text-cream md:text-4xl">
+          {value === null ? "—" : `${count}${suffix ?? ""}`}
+        </p>
+        <p className="mt-1 text-sm text-cream/80">{label}</p>
+      </div>
     </div>
   );
 }
